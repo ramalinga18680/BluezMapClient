@@ -1,0 +1,30 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>	
+	<interface name="org.bluez.obex.MessageAccess1">
+		<method name="SetFolder">
+			<arg name="folder" type="s" direction="in"/>
+		</method>
+		<method name="ListFolders">
+			<arg name="filters" type="a{sv}" direction="in"/>
+			<arg name="content" type="aa{sv}" direction="out"/>
+		</method>
+		<method name="ListMessages">
+			<arg name="folder" type="s" direction="in"/>
+			<arg name="filter" type="a{sv}" direction="in"/>
+			<arg name="messages" type="a{oa{sv}}" direction="out"/>
+		</method>
+		<method name="ListFilterFields">
+			<arg name="fields" type="as" direction="out"/>
+		</method>
+		<method name="UpdateInbox">
+		</method>
+		<method name="PushMessage">
+			<arg name="file" type="s" direction="in"/>
+			<arg name="folder" type="s" direction="in"/>
+			<arg name="args" type="a{sv}" direction="in"/>
+			<arg name="transfer" type="o" direction="out"/>
+			<arg name="properties" type="a{sv}" direction="out"/>
+		</method>
+	</interface>
+</node>
